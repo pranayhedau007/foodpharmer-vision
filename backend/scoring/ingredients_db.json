@@ -1,0 +1,136 @@
+{
+  "harmful_ingredients": [
+    {
+      "name": "High Fructose Corn Syrup",
+      "aliases": ["high fructose corn syrup", "hfcs", "corn syrup"],
+      "severity": "high",
+      "reason": "Linked to obesity, insulin resistance, and metabolic syndrome"
+    },
+    {
+      "name": "Trans Fat / Partially Hydrogenated Oil",
+      "aliases": ["partially hydrogenated", "hydrogenated vegetable oil", "hydrogenated soybean oil", "hydrogenated cottonseed oil"],
+      "severity": "high",
+      "reason": "Raises LDL cholesterol and lowers HDL; banned by the FDA but trace amounts persist"
+    },
+    {
+      "name": "BHA",
+      "aliases": ["bha", "butylated hydroxyanisole"],
+      "severity": "high",
+      "reason": "Potential carcinogen; listed as possibly carcinogenic to humans by IARC"
+    },
+    {
+      "name": "BHT",
+      "aliases": ["bht", "butylated hydroxytoluene"],
+      "severity": "high",
+      "reason": "Linked to tumor promotion in animal studies; avoid where possible"
+    },
+    {
+      "name": "TBHQ",
+      "aliases": ["tbhq", "tertiary butylhydroquinone"],
+      "severity": "high",
+      "reason": "Synthetic preservative linked to vision disturbances and liver effects at high doses"
+    },
+    {
+      "name": "Sodium Nitrate / Nitrite",
+      "aliases": ["sodium nitrate", "sodium nitrite", "potassium nitrate", "potassium nitrite"],
+      "severity": "high",
+      "reason": "Forms carcinogenic nitrosamines when cooked at high heat"
+    },
+    {
+      "name": "Artificial Colors",
+      "aliases": ["red 40", "red 40 lake", "yellow 5", "yellow 6", "blue 1", "blue 2", "green 3", "red 3", "fd&c", "allura red"],
+      "severity": "high",
+      "reason": "Linked to hyperactivity in children; some are derived from petroleum"
+    },
+    {
+      "name": "Azodicarbonamide",
+      "aliases": ["azodicarbonamide", "ado"],
+      "severity": "high",
+      "reason": "Dough conditioner banned in Europe and Australia; WHO links it to respiratory issues"
+    },
+    {
+      "name": "Brominated Vegetable Oil",
+      "aliases": ["brominated vegetable oil", "bvo"],
+      "severity": "high",
+      "reason": "Bromine accumulates in body tissue; banned in Europe and Japan"
+    },
+    {
+      "name": "Aspartame",
+      "aliases": ["aspartame", "nutrasweet", "equal"],
+      "severity": "medium",
+      "reason": "Classified as possibly carcinogenic to humans (IARC Group 2B) in 2023"
+    },
+    {
+      "name": "Sucralose",
+      "aliases": ["sucralose", "splenda"],
+      "severity": "medium",
+      "reason": "May negatively alter gut microbiome; genotoxic in recent studies"
+    },
+    {
+      "name": "Acesulfame Potassium",
+      "aliases": ["acesulfame potassium", "acesulfame-k", "ace-k", "sunett", "sweet one"],
+      "severity": "medium",
+      "reason": "Animal studies link it to cancer risk; limited human safety data"
+    },
+    {
+      "name": "Saccharin",
+      "aliases": ["saccharin", "sweet n low"],
+      "severity": "medium",
+      "reason": "Formerly listed as a carcinogen; still controversial; disrupts gut bacteria"
+    },
+    {
+      "name": "Carrageenan",
+      "aliases": ["carrageenan"],
+      "severity": "medium",
+      "reason": "Derived from seaweed but linked to gut inflammation and digestive issues"
+    },
+    {
+      "name": "Seed Oils",
+      "aliases": ["soybean oil", "canola oil", "sunflower oil", "corn oil", "cottonseed oil", "rapeseed oil", "safflower oil", "vegetable oil", "refined vegetable oil"],
+      "severity": "medium",
+      "reason": "High in omega-6 linoleic acid; excessive consumption linked to inflammation"
+    },
+    {
+      "name": "Sodium Benzoate",
+      "aliases": ["sodium benzoate"],
+      "severity": "medium",
+      "reason": "Forms benzene (carcinogen) when combined with Vitamin C; linked to hyperactivity"
+    },
+    {
+      "name": "Potassium Bromate",
+      "aliases": ["potassium bromate"],
+      "severity": "high",
+      "reason": "Classified as possibly carcinogenic; banned in EU, UK, and Canada"
+    },
+    {
+      "name": "Polysorbate 80",
+      "aliases": ["polysorbate 80", "polysorbate 60"],
+      "severity": "medium",
+      "reason": "Emulsifier that may disrupt gut barrier and alter microbiome in animal studies"
+    },
+    {
+      "name": "Caramel Color (IV)",
+      "aliases": ["caramel color", "caramel coloring"],
+      "severity": "medium",
+      "reason": "Class IV caramel color contains 4-MEI, a potential carcinogen"
+    },
+    {
+      "name": "Maltodextrin",
+      "aliases": ["maltodextrin"],
+      "severity": "low",
+      "reason": "High glycemic index sugar substitute that spikes blood sugar faster than glucose"
+    },
+    {
+      "name": "Artificial Flavor",
+      "aliases": ["artificial flavor", "artificial flavors", "artificial flavoring"],
+      "severity": "low",
+      "reason": "Catch-all term that may mask MSG or other additives"
+    },
+    {
+      "name": "MSG",
+      "aliases": ["monosodium glutamate", "msg"],
+      "severity": "low",
+      "reason": "Generally recognized as safe, but some individuals report sensitivity symptoms"
+    }
+  ]
+}
