@@ -11,6 +11,8 @@ CREATE TABLE IF NOT EXISTS products (
     fiber_g FLOAT,
     sodium_mg FLOAT,
     health_score FLOAT,
+    ingredients_score FLOAT,
+    product_grade TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
