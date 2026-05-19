@@ -18,3 +18,8 @@ food_dataset/
 
 # Docker volumes
 postgres_data/
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
