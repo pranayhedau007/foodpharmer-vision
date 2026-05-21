@@ -67,6 +67,9 @@ A custom classification head will be trained for:
 - Ingredient-level risk detection  
 - Product-level health scoring  
 
+Repo note: this codebase includes an initial XGBoost scorer (`ml/models/xgb_health.json`) plus a DistilBERT
+training entrypoint at `ml/nlp/training/train_distilbert.py` (see `ml/nlp/training/TRAINING.md`).
+
 ---
 
 ### 3️⃣ Model Distillation (Optional)

@@ -6,7 +6,8 @@ from groq import Groq
 from dotenv import load_dotenv
 
 load_dotenv()
-_groq = Groq(api_key=os.getenv("GROQ_API_KEY"))
+_groq_api_key = os.getenv("GROQ_API_KEY")
+_groq = Groq(api_key=_groq_api_key) if _groq_api_key else None
 
 _CLEAN_PROMPT = """You are a food label expert. Below is raw OCR text from a food product's ingredients section.
 It contains OCR noise, garbled characters, and artifacts. Extract only the actual ingredient names as a clean list.
@@ -112,6 +113,8 @@ def _parse_nutrition(text: str) -> dict[str, str]:
 
 def _clean_ingredients_with_groq(raw_text: str) -> list[str]:
     try:
+        if _groq is None:
+            raise RuntimeError("GROQ_API_KEY not set")
         response = _groq.chat.completions.create(
             model="llama-3.1-8b-instant",
             messages=[{"role": "user", "content": _CLEAN_PROMPT.format(text=raw_text)}],
