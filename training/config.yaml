@@ -1,0 +1,31 @@
+model:
+  name: meta-llama/Llama-3.2-3B-Instruct
+  # After fine-tuning, point this at the LoRA adapter dir:
+  lora_adapter: outputs/llama_health_lora
+
+lora:
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj]
+
+training:
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 8
+  num_train_epochs: 3
+  learning_rate: 2e-4
+  warmup_steps: 10
+  max_seq_length: 1024
+
+data:
+  raw: data/ingredient_dataset_raw/ingredients_raw.jsonl
+  labeled: data/ingredient_dataset_labeled/labeled.jsonl
+  sft: training/sft_dataset.jsonl
+
+inference:
+  # Ollama (for serving) — runs locally, no HF weights needed
+  ollama_model: llama3.2:latest
+  ollama_base_url: http://localhost:11434
+  temperature: 0.1
+  top_p: 0.95
+  max_new_tokens: 256
