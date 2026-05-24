@@ -1,0 +1,29 @@
+# ── Secrets ───────────────────────────────────────────────────────────────────
+.env
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# ── macOS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+
+# ── Large model artifacts (too large for git) ─────────────────────────────────
+# Merged HuggingFace model (~6 GB)
+outputs/merged_model/
+
+# GGUF files (~2-6 GB each)
+outputs/*.gguf
+
+# LoRA adapter — already on HuggingFace: pranayhedau007/foodpharmer-lora
+outputs/llama_health_lora/
+
+# ── Frontend ──────────────────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+
+# ── CV debug outputs ──────────────────────────────────────────────────────────
+ml/cv/outputs/*.jpg
+ml/cv/outputs/*.png
