@@ -3,7 +3,7 @@ import styles from './Results.module.css'
 const GRADE_COLOR = { A: '#27ae60', B: '#2ecc71', C: '#f39c12', D: '#e67e22', E: '#e74c3c', F: '#c0392b' }
 
 export default function Results({ result }) {
-  const { score, xgb_score, grade, red_flags = [], ingredients = [], nutrition = {} } = result
+  const { score, xgb_score, grade, red_flags = [], ingredients = [], nutrition = {}, allergens = [] } = result
   const displayScore = xgb_score ?? score
   const gradeColor = GRADE_COLOR[grade?.toUpperCase()] ?? '#888'
 
@@ -51,6 +51,20 @@ export default function Results({ result }) {
           </table>
         </section>
       )}
+
+      {/* Allergens */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Potential Allergens</h2>
+        {allergens.length > 0 ? (
+          <ul className={styles.ingredientList}>
+            {allergens.map((a, i) => (
+              <li key={i} className={styles.allergenChip}>{a}</li>
+            ))}
+          </ul>
+        ) : (
+          <p className={styles.noAllergens}>No known allergens detected</p>
+        )}
+      </section>
 
       {/* Ingredients */}
       {ingredients.length > 0 && (
