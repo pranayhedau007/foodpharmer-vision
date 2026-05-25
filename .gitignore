@@ -23,3 +23,22 @@ postgres_data/
 frontend/node_modules/
 frontend/dist/
 frontend/.vite/
+
+# Synthetic OCR data and model artifacts
+data/synthetic_ocr_smoke/
+
+md/
+docs/
+data/
+
+.claude/
+ml/ocr/neural/outputs_debug/
+ml/ocr/neural/outputs_rescue_debug/
+ml/ocr/neural/outputs/
+ml/ocr/neural/weights/
+data/synthetic_ocr/
+data/synthetic_ocr_medium/
+__pycache__/
+*.pyc
+*.pt
+*.pth

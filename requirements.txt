@@ -14,3 +14,9 @@ pytesseract>=0.3.10
 fastapi>=0.110.0
 uvicorn[standard]>=0.27.0
 python-multipart>=0.0.9
+torch>=2.0.0
+torchvision>=0.15.0
+torch-directml
+transformers>=4.40.0
+tqdm>=4.65.0
+rapidfuzz>=3.0.0
