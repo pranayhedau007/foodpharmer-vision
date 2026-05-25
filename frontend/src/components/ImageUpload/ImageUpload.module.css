@@ -1,0 +1,116 @@
+.zone {
+  border: 2px dashed #d0d0d0;
+  border-radius: 14px;
+  background: #fff;
+  min-height: 240px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.zone:hover,
+.dragging {
+  border-color: #111;
+  background: #fafafa;
+}
+
+.filled {
+  border-style: solid;
+  border-color: #ccc;
+  cursor: default;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Placeholder state */
+
+.placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.icon {
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.labelText {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.hintText {
+  font-size: 0.82rem;
+  color: #999;
+}
+
+.cta {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: #bbb;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 4px 12px;
+}
+
+/* Preview state */
+
+.preview {
+  position: relative;
+  flex: 1;
+  min-height: 240px;
+}
+
+.previewImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.previewOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 12px 14px;
+}
+
+.fileName {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+}
+
+.changeBtn {
+  font-size: 0.78rem;
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 5px;
+  padding: 3px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.changeBtn:hover {
+  background: rgba(255,255,255,0.35);
+}
