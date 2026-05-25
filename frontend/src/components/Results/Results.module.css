@@ -116,6 +116,40 @@
   color: #2c5282;
 }
 
+/* OCR Reliability */
+
+.reliabilityRow {
+  display: flex;
+  gap: 32px;
+}
+
+@media (max-width: 500px) {
+  .reliabilityRow {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.reliabilityItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reliabilityLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.reliabilityValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
 /* Sections */
 
 .section {

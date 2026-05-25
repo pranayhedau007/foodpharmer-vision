@@ -8,6 +8,7 @@ from ml.ocr import extract_nutrition_text, extract_text
 from backend.scoring import score_label
 from backend.scoring.xgb_predictor import predict_from_parsed
 from backend.scoring.allergens import detect_allergens
+from backend.inference.ocr_reliability import run_ocr_reliability
 
 
 def run_pipeline(nutrition_image: np.ndarray, ingredients_image: np.ndarray) -> dict:
@@ -37,14 +38,18 @@ def run_pipeline(nutrition_image: np.ndarray, ingredients_image: np.ndarray) -> 
     result     = score_label(parsed)
     xgb_result = predict_from_parsed(parsed)
     allergens  = detect_allergens(parsed["ingredients"])
+    ocr_reliability = run_ocr_reliability(
+        nutrition_image, nutrition_text, parsed["nutrition"],
+    )
 
     return {
         **result,
         "xgb_score":   xgb_result["xgb_score"],
         "ingredients": parsed["ingredients"],
         "nutrition":   parsed["nutrition"],
-        "allergens":   allergens,
-        "raw_text":    parsed["raw_text"],
+        "allergens":        allergens,
+        "raw_text":         parsed["raw_text"],
+        "ocr_reliability":  ocr_reliability,
     }
 
 

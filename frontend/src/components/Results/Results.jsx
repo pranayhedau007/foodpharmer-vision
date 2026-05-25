@@ -2,10 +2,15 @@ import styles from './Results.module.css'
 
 const GRADE_COLOR = { A: '#27ae60', B: '#2ecc71', C: '#f39c12', D: '#e67e22', E: '#e74c3c', F: '#c0392b' }
 
+const QUALITY_COLOR = { good: '#27ae60', medium: '#f39c12', bad: '#c0392b', unknown: '#888' }
+
 export default function Results({ result }) {
-  const { score, xgb_score, grade, red_flags = [], ingredients = [], nutrition = {}, allergens = [] } = result
+  const { score, xgb_score, grade, red_flags = [], ingredients = [], nutrition = {}, allergens = [], ocr_reliability } = result
   const displayScore = xgb_score ?? score
   const gradeColor = GRADE_COLOR[grade?.toUpperCase()] ?? '#888'
+
+  const photoQuality = ocr_reliability?.photo_quality
+  const fieldConfidence = ocr_reliability?.field_confidence
 
   return (
     <div className={styles.container}>
@@ -34,6 +39,32 @@ export default function Results({ result }) {
           )}
         </div>
       </div>
+
+      {/* OCR Reliability */}
+      {ocr_reliability && (
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>OCR Reliability</h2>
+          <div className={styles.reliabilityRow}>
+            <div className={styles.reliabilityItem}>
+              <span className={styles.reliabilityLabel}>Photo quality</span>
+              <span
+                className={styles.reliabilityValue}
+                style={{ color: QUALITY_COLOR[photoQuality?.label] ?? '#888' }}
+              >
+                {photoQuality?.message ?? 'Photo quality unavailable'}
+              </span>
+            </div>
+            <div className={styles.reliabilityItem}>
+              <span className={styles.reliabilityLabel}>OCR confidence</span>
+              <span className={styles.reliabilityValue}>
+                {fieldConfidence?.overall_confidence_percent != null
+                  ? `${Math.round(fieldConfidence.overall_confidence_percent)}%`
+                  : fieldConfidence?.message ?? 'unavailable'}
+              </span>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Nutrition */}
       {Object.keys(nutrition).length > 0 && (
