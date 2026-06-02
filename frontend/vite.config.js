@@ -7,6 +7,8 @@ export default defineConfig({
     proxy: {
       '/scan': 'http://localhost:8000',
       '/health': 'http://localhost:8000',
+      '/ingredient-info': 'http://localhost:8000',
+      '/red-flag-info': 'http://localhost:8000',
     },
   },
 })

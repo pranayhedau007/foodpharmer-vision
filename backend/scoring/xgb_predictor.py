@@ -141,6 +141,49 @@ def _compute_ingredients_score(ingredients: list[str]) -> float:
     return round((weighted_sum / max_possible) * 100, 2)
 
 
+def resolve_ingredient_names(ingredients: list[str]) -> list[str]:
+    """
+    Map each alias to its canonical ingredient name and deduplicate,
+    preserving order of first occurrence.
+    Must be called after predict_from_parsed so all aliases are already in the DB.
+    """
+    conn = psycopg2.connect(
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT"),
+    )
+    cur = conn.cursor()
+
+    seen: set[str] = set()
+    result: list[str] = []
+    for ing in ingredients:
+        ing = ing.strip()
+        if not ing:
+            continue
+        cur.execute(
+            """
+            SELECT i.name
+            FROM ingredient_aliases ia
+            JOIN ingredients i ON ia.ingredient_id = i.id
+            WHERE LOWER(ia.alias) = LOWER(%s)
+            LIMIT 1
+            """,
+            (ing,),
+        )
+        row = cur.fetchone()
+        canonical = row[0] if row else ing
+        key = canonical.lower()
+        if key not in seen:
+            seen.add(key)
+            result.append(canonical)
+
+    cur.close()
+    conn.close()
+    return result
+
+
 def predict_from_parsed(parsed: dict) -> dict:
     """
     Takes the output of parse_label() and returns an XGBoost health score.

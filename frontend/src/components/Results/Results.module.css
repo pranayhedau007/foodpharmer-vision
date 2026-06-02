@@ -92,10 +92,27 @@
   font-size: 0.82rem;
   border-radius: 5px;
   padding: 3px 10px;
-  cursor: default;
+  cursor: pointer;
   background: #fdf0ee;
   border: 1px solid #f5c6c0;
   color: #c0392b;
+  transition: filter 0.12s;
+}
+
+.flagList li:hover {
+  filter: brightness(0.94);
+}
+
+.flagActive {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+}
+
+.flagHint {
+  font-size: 0.7rem;
+  font-weight: 700;
+  opacity: 0.6;
+  margin-left: 4px;
 }
 
 .flag_high {
@@ -200,6 +217,13 @@
 
 /* Ingredients */
 
+.ingredientHint {
+  font-size: 0.78rem;
+  color: #aaa;
+  margin-bottom: 10px;
+  margin-top: -8px;
+}
+
 .ingredientList {
   list-style: none;
   display: flex;
@@ -215,6 +239,118 @@
   font-size: 0.82rem;
   color: #444;
   text-transform: capitalize;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.ingredient:hover {
+  background: #eaeae7;
+  border-color: #d0d0d0;
+}
+
+.ingredientActive {
+  background: #e8f0fe;
+  border-color: #a8c4fa;
+  color: #1a56db;
+}
+
+/* Ingredient info popup */
+
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.popup {
+  position: fixed;
+  z-index: 1000;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.13);
+  padding: 16px;
+  max-height: 320px;
+  overflow-y: auto;
+  animation: popupIn 0.14s ease;
+}
+
+@keyframes popupIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.popupHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.popupTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111;
+  text-transform: capitalize;
+}
+
+.popupCanonical {
+  font-size: 0.76rem;
+  color: #999;
+  margin-top: 2px;
+  text-transform: capitalize;
+}
+
+.popupClose {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #bbb;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.popupClose:hover {
+  color: #555;
+}
+
+.popupLoading {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.popupError {
+  font-size: 0.85rem;
+  color: #c0392b;
+  padding: 8px 0;
+}
+
+.popupBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popupSection p {
+  font-size: 0.84rem;
+  color: #333;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.popupSectionLabel {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #aaa;
+  margin-bottom: 3px;
 }
 
 .allergenChip {

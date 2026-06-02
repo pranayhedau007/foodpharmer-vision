@@ -37,3 +37,13 @@ CREATE TABLE IF NOT EXISTS ingredient_aliases (
     alias TEXT,
     ingredient_id INT REFERENCES ingredients(id)
 );
+
+CREATE TABLE IF NOT EXISTS ingredient_info (
+    ingredient TEXT PRIMARY KEY,
+    info TEXT
+);
+
+CREATE TABLE IF NOT EXISTS red_flag_info (
+    ingredient TEXT PRIMARY KEY,
+    explanation TEXT
+);
